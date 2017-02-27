@@ -1,0 +1,23 @@
+version: '2'
+
+volumes:
+  data:
+
+services:
+  postgres:
+    image: postgres:9.6.2
+    volumes:
+      - data:/data
+    environment:
+      - POSTGRES_USER=nativo
+      - POSTGRES_PASSWORD=vzGg9WRrtTkwmV7pghFuENPp
+      - PGDATA=/data/pgdata
+
+  phoenix:
+    build: ./phoenix
+    volumes:
+      - ./phoenix:/code
+    ports:
+      - "4000:4000"
+    working_dir: /code/nativo
+    command: bash -c "until mix local.hex --force ; do echo 'retry hex'; done && mix phoenix.server"
