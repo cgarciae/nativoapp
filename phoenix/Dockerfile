@@ -36,4 +36,7 @@ RUN mix archive.install --force https://github.com/phoenixframework/archives/raw
 # See http://www.phoenixframework.org/docs/installation#section-node-js-5-0-0-
 #RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && sudo apt-get install -y nodejs
 
+RUN until mix local.hex --force ; do echo 'retrying hex installation'; done
+RUN until mix local.rebar --force ; do echo 'retrying rebar installation'; done
+
 WORKDIR /code

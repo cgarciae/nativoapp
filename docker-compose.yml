@@ -19,5 +19,20 @@ services:
       - ./phoenix:/code
     ports:
       - "4000:4000"
-    working_dir: /code/nativo
-    command: bash -c "until mix local.hex --force ; do echo 'retry hex'; done && mix phoenix.server"
+    working_dir: /code
+    command: mix phoenix.server
+
+  pgadmin:
+    image: turgon37/phppgadmin
+    ports:
+      - "2345:80"
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_NAME=nativo
+
+  graphiql:
+    build: ./graphiql
+    ports:
+      - "4001:8080"
+    environment:
+      - GRAPHQL_SERVER=http://localhost:4000/graphql

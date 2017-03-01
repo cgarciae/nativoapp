@@ -1,0 +1,4 @@
+/code/_build/dev/lib/absinthe/ebin/absinthe_lexer.beam
+/code/_build/dev/lib/absinthe/ebin/absinthe_parser.beam
+/code/_build/dev/lib/absinthe/ebin/ex_graphql_lexer.beam
+/code/_build/dev/lib/absinthe/ebin/ex_graphql_parser.beam
