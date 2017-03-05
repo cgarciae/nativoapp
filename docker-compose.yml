@@ -17,6 +17,7 @@ services:
     build: ./phoenix
     volumes:
       - ./phoenix:/code
+      - data:/data/nativo
     ports:
       - "4000:4000"
     working_dir: /code

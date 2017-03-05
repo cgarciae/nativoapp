@@ -8,6 +8,7 @@ defmodule Nativo.User do
     field :email, :string
     field :name, :string
     field :progress, :map
+    field :interests, :map
 
     timestamps()
   end
@@ -17,7 +18,7 @@ defmodule Nativo.User do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:user_name, :token, :email, :name, :progress])
+    |> cast(params, [:user_name, :token, :email, :name, :progress, :interests])
     |> validate_required([:user_name, :token, :email, :name])
   end
 

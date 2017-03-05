@@ -40,7 +40,8 @@ defmodule Nativo.Schema do
       arg :token, :string
       arg :email, :string
       arg :name, :string
-      arg :progress, :string
+      arg :progress, :json
+      arg :interests, :json
 
       resolve &Schema.User.update/2
     end

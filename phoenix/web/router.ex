@@ -26,7 +26,10 @@ defmodule Nativo.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Nativo do
-  #   pipe_through :api
-  # end
+  scope "/api", Nativo do
+    pipe_through :api
+
+    get "/worlds/:id", WorldsController, :get
+    post "/worlds/:id", WorldsController, :upsert
+  end
 end
