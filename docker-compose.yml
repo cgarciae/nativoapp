@@ -12,6 +12,7 @@ services:
       - POSTGRES_USER=nativo
       - POSTGRES_PASSWORD=vzGg9WRrtTkwmV7pghFuENPp
       - PGDATA=/data/pgdata
+    restart: always
 
   phoenix:
     build: ./phoenix
@@ -22,6 +23,7 @@ services:
       - "4000:4000"
     working_dir: /code
     command: bash -c "mix ecto.migrate && mix phoenix.server"
+    restart: always
 
   pgadmin:
     image: turgon37/phppgadmin
@@ -30,6 +32,7 @@ services:
     environment:
       - POSTGRES_HOST=postgres
       - POSTGRES_NAME=nativo
+    restart: always
 
   graphiql:
     build: ./graphiql
@@ -37,3 +40,4 @@ services:
       - "4001:8080"
     environment:
       - GRAPHQL_SERVER=http://localhost:4000/graphql
+    restart: always
