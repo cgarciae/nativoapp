@@ -19,6 +19,7 @@ services:
     volumes:
       - ./phoenix:/code
       - data:/data/nativo
+      - ./worlds:/data/nativo
     ports:
       - "4000:4000"
     working_dir: /code
