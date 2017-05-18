@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:16.10 
 
 MAINTAINER Marcelo Gonçalves <marcelocg@gmail.com>
 
